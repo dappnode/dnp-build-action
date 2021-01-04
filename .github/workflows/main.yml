@@ -30,7 +30,7 @@ jobs:
           PINATA_API_KEY: ${{ secrets.PINATA_API_KEY }}
           PINATA_SECRET_API_KEY: ${{ secrets.PINATA_SECRET_API_KEY }}
         env:
-          SKIP_COMMIT: true
+          SKIP_COMMENT: true
 
   release:
     runs-on: ubuntu-latest

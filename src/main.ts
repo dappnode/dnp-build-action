@@ -53,6 +53,11 @@ This is a development version and should **only** be installed for testing purpo
 ${botCommentTag}
 `
 
+    if (process.env.SKIP_COMMENT) {
+      core.info(`SKIP_COMMENT=true\n ${body}`)
+      return
+    }
+
     await writeToBotComment({
       githubToken: GITHUB_TOKEN,
       body,
