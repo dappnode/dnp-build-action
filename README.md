@@ -7,13 +7,13 @@ Builds and uploads a release to IPFS and comments its hash in the PR
 `.github/workflows/build-on-pr.yml`
 
 ```yaml
-name: Bump upstream version
+name: Build on PR
 
 on:
   pull_request:
 
 jobs:
-  bump-upstream:
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
