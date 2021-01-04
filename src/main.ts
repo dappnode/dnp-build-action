@@ -3,6 +3,13 @@ import {exec} from '@actions/exec'
 import {dappnodesdk} from '@dappnode/dappnodesdk'
 import {writeToBotComment} from './writeToBotComment'
 
+// Must be added due to Listr which is used by @dappnode/dappnodesdk
+/* eslint-disable @typescript-eslint/no-var-requires */
+/* eslint-disable @typescript-eslint/no-require-imports */
+require('any-observable/register')('rxjs')
+/* eslint-enable @typescript-eslint/no-var-requires */
+/* eslint-enable @typescript-eslint/no-require-imports */
+
 const botCommentTag = '(by dappnodebot/build-action)'
 
 async function run(): Promise<void> {
