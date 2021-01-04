@@ -1,4 +1,5 @@
 import * as core from '@actions/core'
+import {exec} from '@actions/exec'
 import {dappnodesdk} from '@dappnode/dappnodesdk'
 import {writeToBotComment} from './writeToBotComment'
 
@@ -12,6 +13,10 @@ async function run(): Promise<void> {
     // dappnodesdk.build expects Pinata credentials via ENVs
     process.env.PINATA_API_KEY = PINATA_API_KEY
     process.env.PINATA_SECRET_API_KEY = PINATA_SECRET_API_KEY
+
+    // Print dappnodesdk version as a sanity check
+    const version = await exec('node_modules/.bin/dappnodesdk --version')
+    core.info(`@dappnode/dappnodesdk version: ${version}`)
 
     // Pinata credentials are injected via ENVs -
     // This script will delete previous pins with the same branch
