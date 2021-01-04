@@ -21,14 +21,14 @@ jobs:
       - run: yarn test
 
       # make sure the action works on a clean machine without building
-      - name: Test action locally
-        uses: ./
-        with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          PINATA_API_KEY: ${{ secrets.PINATA_API_KEY }}
-          PINATA_SECRET_API_KEY: ${{ secrets.PINATA_SECRET_API_KEY }}
-        env:
-          SKIP_COMMIT: true
+      # - name: Test action locally
+      #   uses: ./
+      #   with:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      #     PINATA_API_KEY: ${{ secrets.PINATA_API_KEY }}
+      #     PINATA_SECRET_API_KEY: ${{ secrets.PINATA_SECRET_API_KEY }}
+      #   env:
+      #     SKIP_COMMIT: true
 
   release:
     runs-on: ubuntu-latest

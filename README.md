@@ -19,5 +19,7 @@ jobs:
       - uses: actions/checkout@v2
       - uses: dappnode/dnp-build-action@v1
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PINATA_API_KEY: ${{ secrets.PINATA_API_KEY }}
+          PINATA_SECRET_API_KEY: ${{ secrets.PINATA_SECRET_API_KEY }}
 ```
