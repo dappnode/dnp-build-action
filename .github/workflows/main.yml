@@ -21,30 +21,12 @@ jobs:
       - run: yarn test
 
       # make sure the action works on a clean machine without building
-      - name: Prepare mock compose
-        run: |
-          cat <<EOT >> docker-compose.yml
-          version: "3.4"
-          services:
-            lighthouse-dependency.dnp.dappnode.eth:
-              build:
-                context: ./build
-                args:
-                  UPSTREAM_VERSION: v0.2.0
-          EOT
-      - name: Prepare mock manifest
-        run: |
-          cat <<EOT >> dappnode_package.json
-          {
-            "name": "lighthouse-dependency.dnp.dappnode.eth"
-          }
-          EOT
-      - name: Test local action
+      - name: Test action locally
         uses: ./
         with:
-          upstream_repo: 'sigp/lighthouse'
-          upstream_arg: 'UPSTREAM_VERSION'
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PINATA_API_KEY: ${{ secrets.PINATA_API_KEY }}
+          PINATA_SECRET_API_KEY: ${{ secrets.PINATA_SECRET_API_KEY }}
         env:
           SKIP_COMMIT: true
 

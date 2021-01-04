@@ -6,7 +6,12 @@ const botCommentTag = '(by dappnodebot/build-action)'
 
 async function run(): Promise<void> {
   try {
-    const githubToken = core.getInput('github_token')
+    const GITHUB_TOKEN = core.getInput('GITHUB_TOKEN')
+    const PINATA_API_KEY = core.getInput('PINATA_API_KEY')
+    const PINATA_SECRET_API_KEY = core.getInput('PINATA_SECRET_API_KEY')
+    // dappnodesdk.build expects Pinata credentials via ENVs
+    process.env.PINATA_API_KEY = PINATA_API_KEY
+    process.env.PINATA_SECRET_API_KEY = PINATA_SECRET_API_KEY
 
     // Pinata credentials are injected via ENVs -
     // This script will delete previous pins with the same branch
@@ -37,7 +42,7 @@ ${botCommentTag}
 `
 
     await writeToBotComment({
-      githubToken,
+      githubToken: GITHUB_TOKEN,
       body,
       isBotComment: _body => _body.includes(botCommentTag)
     })

@@ -3,8 +3,14 @@ description: 'Builds and uploads a release to IPFS and comments its hash in the 
 author: 'DAppNode Association'
 
 inputs:
-  github_token:
+  GITHUB_TOKEN:
     description: 'Set a generated GITHUB_TOKEN for pushing to the remote branch.'
+    required: true
+  PINATA_API_KEY:
+    description: 'API_KEY key to push to pinata.'
+    required: true
+  PINATA_SECRET_API_KEY:
+    description: 'SECRET_API_KEY to push to pinata.'
     required: true
 
 runs:
