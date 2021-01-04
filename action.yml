@@ -1,0 +1,12 @@
+name: 'DAppNode package build action'
+description: 'Builds and uploads a release to IPFS and comments its hash in the PR'
+author: 'DAppNode Association'
+
+inputs:
+  github_token:
+    description: 'Set a generated GITHUB_TOKEN for pushing to the remote branch.'
+    required: true
+
+runs:
+  using: 'node12'
+  main: 'dist/index.js'
