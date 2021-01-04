@@ -8,7 +8,7 @@ async function run(): Promise<void> {
   try {
     const githubToken = core.getInput('github_token')
 
-    // Pinata credentials are injected via ENVs
+    // Pinata credentials are injected via ENVs -
     // This script will delete previous pins with the same branch
     const {releaseMultiHash} = await dappnodesdk.build({
       upload_to: 'ipfs',
