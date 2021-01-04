@@ -1,6 +1,6 @@
 {
   "name": "dnp-build-action",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": true,
   "description": "Builds and uploads a release to IPFS and comments its hash in the PR",
   "main": "lib/main.js",
